@@ -1,16 +1,16 @@
 FROM archlinux:latest
 
 # Install packages
-RUN pacman -Sy --noconfirm fish fastfetch helix git github-cli starship base-devel pacman-contrib python cargo
+RUN pacman -Sy --noconfirm fish fastfetch helix git github-cli starship base-devel python
 
 # Copy configs into skel
 WORKDIR /etc/skel
 COPY configs/* ./
 
-# Install Ame AUR helper
-WORKDIR /tmp/amethyst
-RUN git clone https://git.getcryst.al/crystal/pkgbuilds/ame
-RUN cd ame && makepkg -si
+# Install YAY AUR helper
+WORKDIR /tmp
+RUN git clone https://aur.archlinux.org/yay.git
+RUN cd yay && makepkg -si
 
 # Set fish as entrypoint shell
 ENTRYPOINT ["fish"]
