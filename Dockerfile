@@ -1,7 +1,7 @@
 FROM archlinux:latest
 
 # Install packages
-RUN pacman -Sy fish fastfetch helix git github-cli starship base-devel pacman-contrib python cargo
+RUN pacman -Sy --noconfirm fish fastfetch helix git github-cli starship base-devel pacman-contrib python cargo
 
 # Copy configs into skel
 WORKDIR /etc/skel
