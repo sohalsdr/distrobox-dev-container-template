@@ -5,7 +5,4 @@ RUN pacman -Sy --noconfirm fish fastfetch helix git github-cli starship base-dev
 
 # Copy configs into skel
 WORKDIR /etc/skel/.config
-COPY configs/* ./
-
-# Set fish as entrypoint shell
-ENTRYPOINT ["fish"]
+COPY configs/ ./
